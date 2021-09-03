@@ -24,8 +24,12 @@ def debugInfo(inputSTR, utterance):
 
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
+    
+    resultDICT["career"] = [] 
+    
     if utterance == "[我]想要當[廚師]":
         # write your code here
+        resultDICT["career"].append(args[1])
         pass
 
     if utterance == "[我]要做[煮飯]的工作":
