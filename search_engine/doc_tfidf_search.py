@@ -33,6 +33,12 @@ def doc_vectorizer(docs):
     return df
 
 
+def write_result(corpus):
+    with open("result.txt", "w") as f:
+        for content in corpus:
+            content += "\n"
+            f.write(content)
+
 
 if __name__ == "__main__":
     with open("/home/labpc1/Documents/Project/dobby/dataset/ioh1500_arti.json") as f:
@@ -68,18 +74,21 @@ if __name__ == "__main__":
         for k, v in sim_sorted:
             if v != 0.0:
                 query_lens += 1
+                # print(len(corpus_pre))
                 content = corpus_pre[k].replace(" ", "")
-                corpus.append(corpus_pre[k])
+                corpus.append(content)
                 summary = corpus[-1]
-                print(summary)
         print(query_lens)
 
-        if len(keywords) > 1:
+        # print("now: ", len(corpus))
+        if len(keywords) >= 1:
             corpus_pre = corpus
 
         if query_lens < 3:
             print(keywords)
+            print(f"你想要的內容應該在這{query_lens}篇中")
             # print(corpus)
+            write_result(corpus)
             not_end = False
         else:
             doc_vec = doc_vectorizer(corpus)
