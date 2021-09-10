@@ -24,16 +24,24 @@ def debugInfo(inputSTR, utterance):
 
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
+    
+    resultDICT["location"] = []
+    
     if utterance == "[我]要找[台北][外文系]和[台中][電機系]":
         # write your code here
-        pass
+        resultDICT["location"].append(args[1])
+        resultDICT["location"].append(args[3])
+
 
     if utterance == "[我]要找[台北]和[新竹][外文系]":
         # write your code here
-        pass
+        resultDICT["location"].append(args[1])
+        resultDICT["location"].append(args[2])
+
 
     if utterance == "[我]要找[台北市][外文系]":
         # write your code here
-        pass
+        resultDICT["location"].append(args[1])
+
 
     return resultDICT

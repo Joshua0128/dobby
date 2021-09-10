@@ -42,9 +42,12 @@
         }
 """
 
+
+from ArticutAPI import Articut
+import json
+import math
 from requests import post
 from requests import codes
-import math
 try:
     from intent import Loki_Inquiry
     from intent import Loki_Location
@@ -54,10 +57,14 @@ except:
     from .intent import Loki_Location
     from .intent import Loki_Career
 
-
+with open("data\dept_name_dict.json", encoding="utf-8") as file:
+    deptDICT = json.loads(file.read())
+with open("data\school_name_dict.json", encoding="utf-8") as file:
+    uniDICT = json.loads(file.read())
+    
 LOKI_URL = "https://api.droidtown.co/Loki/BulkAPI/"
-USERNAME = ""
-LOKI_KEY = ""
+USERNAME = "emilyfun199701@gmail.com"
+LOKI_KEY = "hb3Lzsa6bVRZFEAFB+O$Iv9sPQGa*pL"
 # 意圖過濾器說明
 # INTENT_FILTER = []        => 比對全部的意圖 (預設)
 # INTENT_FILTER = [intentN] => 僅比對 INTENT_FILTER 內的意圖
@@ -194,27 +201,29 @@ def testLoki(inputLIST, filterLIST):
         resultDICT = runLoki(inputLIST[i*INPUT_LIMIT:(i+1)*INPUT_LIMIT], filterLIST)
 
 
-if __name__ == "__main__":
+    
+    
+if __name__ == "__main__":  
     # Inquiry
-    print("[TEST] Inquiry")
-    inputLIST = ['我要找成大外文系','我要找成大和台大外文系','我要找台大外文系和資訊系','我要找成大外文系和台大資訊系']
-    testLoki(inputLIST, ['Inquiry'])
-    print("")
+    #print("[TEST] Inquiry")
+    #inputLIST = ['我要找成大外文系','我要找成大和台大外文系','我要找台大外文系和資訊系','我要找成大外文系和台大資訊系']
+    #testLoki(inputLIST, ['Inquiry'])
+    #print("")
 
-    # Location
-    print("[TEST] Location")
-    inputLIST = ['我要找台北市外文系','我要找台北和新竹外文系','我要找台北外文系和台中電機系']
-    testLoki(inputLIST, ['Location'])
-    print("")
+    ## Location
+    #print("[TEST] Location")
+    #inputLIST = ['我要找台北市外文系','我要找台北和新竹外文系','我要找台北外文系和台中電機系']
+    #testLoki(inputLIST, ['Location'])
+    #print("")
 
-    # Career
-    print("[TEST] Career")
-    inputLIST = ['我想要當廚師','我要去拍電影','我要去微軟上班','我要做煮飯的工作','我要去聯發科工作']
-    testLoki(inputLIST, ['Career'])
-    print("")
+    ## Career
+    #print("[TEST] Career")
+    #inputLIST = ['我想要當廚師','我要去拍電影','我要去微軟上班','我要做煮飯的工作','我要去聯發科工作']
+    #testLoki(inputLIST, ['Career'])
+    #print("")
 
     # 輸入其它句子試看看
-    #inputLIST = ["輸入你的內容1", "輸入你的內容2"]
-    #filterLIST = []
-    #resultDICT = runLoki(inputLIST, filterLIST)
-    #print("Result => {}".format(resultDICT))
+    inputLIST = ["我要找成大外文系"]
+    filterLIST = []
+    resultDICT = runLoki(inputLIST, filterLIST)
+    print("Result => {}".format(resultDICT))

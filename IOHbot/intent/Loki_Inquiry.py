@@ -24,20 +24,37 @@ def debugInfo(inputSTR, utterance):
 
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
+    
+    resultDICT["university"] = []
+    resultDICT["department"] = []
+    
     if utterance == "[我]要找[台大][外文系]和[資訊系]":
         # write your code here
-        pass
+        for i in range(2):
+            resultDICT["university"].append(args[1])
+    
+        resultDICT["department"].append(args[2])                
+        resultDICT["department"].append(args[3])         
 
     if utterance == "[我]要找[成大][外文系]":
         # write your code here
-        pass
+        resultDICT["university"].append(args[1])
+        resultDICT["department"].append(args[2])
+
 
     if utterance == "[我]要找[成大][外文系]和[台大][資訊系]":
         # write your code here
-        pass
+        resultDICT["university"].append(args[1])
+        resultDICT["university"].append(args[3])
+        resultDICT["department"].append(args[2])
+        resultDICT["department"].append(args[4])
+
 
     if utterance == "[我]要找[成大]和[台大][外文系]":
         # write your code here
-        pass
+        resultDICT["university"].append(args[1])
+        resultDICT["university"].append(args[2])        
+        for i in range(2):
+            resultDICT["department"].append(args[3])
 
     return resultDICT
