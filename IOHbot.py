@@ -58,8 +58,8 @@ except:
 
 
 LOKI_URL = "https://api.droidtown.co/Loki/BulkAPI/"
-USERNAME = ""
-LOKI_KEY = ""
+USERNAME = "emilyfun199701@gmail.com"
+LOKI_KEY = "hb3Lzsa6bVRZFEAFB+O$Iv9sPQGa*pL"
 # 意圖過濾器說明
 # INTENT_FILTER = []        => 比對全部的意圖 (預設)
 # INTENT_FILTER = [intentN] => 僅比對 INTENT_FILTER 內的意圖
@@ -226,7 +226,7 @@ if __name__ == "__main__":
     print("")
 
     # 輸入其它句子試看看
-    #inputLIST = ["輸入你的內容1", "輸入你的內容2"]
-    #filterLIST = []
-    #resultDICT = runLoki(inputLIST, filterLIST)
-    #print("Result => {}".format(resultDICT))
+    inputLIST = ["我要當老師"]
+    filterLIST = []
+    resultDICT = runLoki(inputLIST, filterLIST)
+    print("Result => {}".format(resultDICT))
