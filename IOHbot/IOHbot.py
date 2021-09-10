@@ -42,8 +42,8 @@
         }
 """
 
-
 from ArticutAPI import Articut
+articut = Articut(username="emilyfun199701@gmail.com", apikey="_$owj7NNaP3Z13z4F$2X2kbmBGY^ZVS")
 import json
 import math
 from requests import post
@@ -200,7 +200,10 @@ def testLoki(inputLIST, filterLIST):
     for i in range(0, math.ceil(len(inputLIST) / INPUT_LIMIT)):
         resultDICT = runLoki(inputLIST[i*INPUT_LIMIT:(i+1)*INPUT_LIMIT], filterLIST)
 
-
+#def checkPattern(message):
+    #articutRESULT = articut.parse(message)["result_pos"]
+    #targetPAT = re.compile("(?<=<ENTITY_pronoun>我</ENTITY_pronoun><ACTION_verb>要</ACTION_verb><ACTION_verb>做</ACTION_verb>).+(?=<FUNC_inner>的</FUNC_inner><ENTITY_noun>工作</ENTITY_noun>)")
+    #jobLIST = targetPAT.findall(",",join(articutRESULT))
     
     
 if __name__ == "__main__":  
@@ -223,7 +226,7 @@ if __name__ == "__main__":
     #print("")
 
     # 輸入其它句子試看看
-    inputLIST = ["我要找成大外文系"]
+    inputLIST = ["我要做掃地的工作"]
     filterLIST = []
     resultDICT = runLoki(inputLIST, filterLIST)
     print("Result => {}".format(resultDICT))
