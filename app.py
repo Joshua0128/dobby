@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: UTF-8 -*-
+
 from flask import Flask, request, abort
 
 from linebot import (
@@ -13,7 +16,7 @@ app = Flask(__name__)
 line_bot_api = LineBotApi('w477YzEf5ubS1SGrLu88dQvzRdR4HUgbjGvbFPxZ3xVVW0s/1ItqB5z2NaOXk2H8kaQybBx+ICHH8jIkWdCYBTBudh4/+1KzAuQRd6c9DOf/jO0/loUC2rgmAolT5UMx+y07nVc+veZLyWY/aZHpggdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('a126d182d8794e0cde2b203d4496a0ef')
 
-line_bot_api.push_message('U27fc746a9ee5264743e7a594c165c2b0', TextSendMessage(text='你可以開始了'))
+line_bot_api.push_message('U27fc746a9ee5264743e7a594c165c2b0', TextSendMessage(text='蕞'))
 
 @app.route("/callback", methods=['POST'])
 def callback():
