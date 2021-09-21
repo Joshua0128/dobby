@@ -24,34 +24,28 @@ def debugInfo(inputSTR, utterance):
 
 def getResult(inputSTR, utterance, args, resultDICT):
     debugInfo(inputSTR, utterance)
-    
-    resultDICT["career"] = []
-    
     if utterance == "[我]想要當[廚師]":
         # write your code here
-        resultDICT["career"].append(args[1])
-        
+        pass
 
     if utterance == "[我]要做[煮飯]的工作":
         # write your code here
-        resultDICT["career"].append(args[1])
-
+        pass
 
     if utterance == "[我]要去拍攝[電影]":
         # write your code here
-        resultDICT["career"].append(args[1])
+        pass
 
-    
     if utterance == "怎麼當[老師]":
-        resultDICT["career"].append(args[0])
-
+        # write your code here
+        pass
 
     if utterance == "要當[老師]要讀什麼":
-        resultDICT["career"].append(args[0])
-
+        # write your code here
+        pass
 
     if utterance == "讀什麼[可以]當[老師]":
-        resultDICT["career"].append(args[1])
+        # write your code here
+        pass
 
     return resultDICT
-

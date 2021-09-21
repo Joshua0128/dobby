@@ -56,4 +56,68 @@ def getResult(inputSTR, utterance, args, resultDICT):
             resultDICT["department"].append(args[3])
 
 
+    if utterance == " [成大][外文系]":
+        resultDICT["university"].append(args[0])
+        resultDICT["department"].append(args[1]) 
+             
+        
+    if utterance == "[外文系]":
+        resultDICT["department"].append(args[1]) 
+
+
+    if utterance == "[成大][外文系][可以]做什麼":
+        resultDICT["university"].append(args[0])
+        resultDICT["department"].append(args[1]) 
+        
+
+    if utterance == "[成大][外文系]出路":
+        resultDICT["university"].append(args[0])
+        resultDICT["department"].append(args[1]) 
+        
+
+    if utterance == "[成大][外文系]分享":
+        resultDICT["university"].append(args[0])
+        resultDICT["department"].append(args[1]) 
+        
+
+    if utterance == "[成大][外文系]好不[好]":
+        resultDICT["university"].append(args[0])
+        resultDICT["department"].append(args[1]) 
+        
+
+    if utterance == "[成大][外文系]畢業出路":
+        resultDICT["university"].append(args[0])
+        resultDICT["department"].append(args[1]) 
+        
+
+    if utterance == "[成大][外文系]畢業工作":
+        resultDICT["university"].append(args[0])
+        resultDICT["department"].append(args[1]) 
+        
+        
+    if utterance == "[成大][外文系]當老師":
+        resultDICT["university"].append(args[0])
+        resultDICT["department"].append(args[1]) 
+        
+
+    if utterance == "[我]想找[成大][外文系]":
+        resultDICT["university"].append(args[1])
+        resultDICT["department"].append(args[2]) 
+        
+
+    if utterance == "[我]想要找[成大][外文系]":
+        resultDICT["university"].append(args[1])
+        resultDICT["department"].append(args[2]) 
+        
+
+    if utterance == "有沒[有][成大][外文系]":
+        resultDICT["university"].append(args[1])
+        resultDICT["department"].append(args[2]) 
+        
+
+    if utterance == "請問有沒[有][成大][外文系]":
+        resultDICT["university"].append(args[1])
+        resultDICT["department"].append(args[2]) 
+
+
     return resultDICT

@@ -37,4 +37,32 @@ def getResult(inputSTR, utterance, args, resultDICT):
         resultDICT["company"].append(args[1])
 
 
+    if utterance == "[微軟]工作":
+        resultDICT["company"].append(args[0])
+ 
+ 
+    if utterance == "怎麼去[微軟]上班":
+        resultDICT["company"].append(args[0])
+
+
+    if utterance == "怎麼去[微軟]工作":
+        resultDICT["company"].append(args[0])
+
+
+    if utterance == "怎麼進[微軟]":
+        resultDICT["company"].append(args[0])
+        
+        
+    if utterance == "讀什麼[可以]去[微軟]":
+        resultDICT["company"].append(args[1])
+        
+
+    if utterance == "讀什麼[可以]進[微軟]":
+        resultDICT["company"].append(args[1])
+
+
+    if utterance == "讀什麼系[可以]去[微軟]":
+        resultDICT["company"].append(args[1])
+
+
     return resultDICT
