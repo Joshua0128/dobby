@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, request, abort
+from IOHBot import runLoki
 
 from linebot import (
     LineBotApi, WebhookHandler
