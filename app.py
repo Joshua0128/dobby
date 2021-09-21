@@ -42,5 +42,13 @@ def handle_message(event):
 
 import os
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
+    port = int(os.environ.get('PORT', 8888))
+    bot_info = line_bot_api.get_bot_info()
+    print(bot_info.display_name)
+    print(bot_info.user_id)
+    print(bot_info.basic_id)
+    print(bot_info.premium_id)
+    print(bot_info.picture_url)
+    print(bot_info.chat_mode)
+    print(bot_info.mark_as_read_mode)
     app.run(host='0.0.0.0', port=port)

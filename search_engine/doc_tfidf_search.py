@@ -61,8 +61,9 @@ if __name__ == "__main__":
 
     not_end = True
     keywords = []
-    corpus_pre = documents
+    # corpus_pre = documents
     while(not_end):
+        res_dict = {}
         q = input("keyword:")
         keywords.append(q)
         sim_sorted = get_similar_articles(q, doc_vec)
@@ -75,14 +76,14 @@ if __name__ == "__main__":
             if v != 0.0:
                 query_lens += 1
                 # print(len(corpus_pre))
-                content = corpus_pre[k].replace(" ", "")
+                content = documents[k].replace(" ", "")
                 corpus.append(content)
                 summary = corpus[-1]
+        
+        res_dict[q] = corpus        
         print(query_lens)
 
-        # print("now: ", len(corpus))
-        if len(keywords) >= 1:
-            corpus_pre = corpus
+        final_len = []
 
         if query_lens < 3:
             print(keywords)
