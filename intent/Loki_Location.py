@@ -42,5 +42,22 @@ def getResult(inputSTR, utterance, args, resultDICT):
     if utterance == "[我]要找[台北市][外文系]":
         # write your code here
         resultDICT["location"].append(args[1])
+        
+        
+  
+    if utterance == "[我]要找[台北市][外文系]":
+        # write your code here
+        resultDICT["location"].append(args[1])
+        
+
+    if utterance == "[台北市]外文系":
+        # write your code here
+        resultDICT["location"].append(args[0])
+        
+
+    if utterance == "[台北市]學校":
+        # write your code here
+        resultDICT["location"].append(args[0])
+        
 
     return resultDICT
