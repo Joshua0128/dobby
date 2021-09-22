@@ -62,11 +62,11 @@ def handle_message(event):
     inputLIST = [text]
     filterLIST = []
     resultDICT = runLoki(inputLIST, filterLIST)
-    print("Result => {}".format(resultDICT))
+    txt = "Result => {}".format(resultDICT)
 
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))
+        TextSendMessage(text=txt))
 
 
 import os
