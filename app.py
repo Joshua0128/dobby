@@ -3,6 +3,7 @@ LINE_CHANNEL_SECRET = "862e704472f1a37fe1e7f006b9563fac"
 
 from flask import Flask, request, abort
 
+
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -12,6 +13,9 @@ from linebot.exceptions import (
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
+
+from IOHbot import runLoki
+
 
 app = Flask(__name__)
 
@@ -27,7 +31,13 @@ def callback():
     # get request body as text
     body = request.get_data(as_text=True)
     print(body)
+    
     app.logger.info("Request body: " + body)
+    # 輸入其它句子試看看
+    inputLIST = ["我想找成大外文系"]
+    filterLIST = []
+    resultDICT = runLoki(inputLIST, filterLIST)
+    print("Result => {}".format(resultDICT))
 
     # handle webhook body
     try:
