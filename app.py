@@ -32,9 +32,7 @@ def callback():
 
     # get request body as text
     body = request.get_data(as_text=True)
-    # pprint(body)
-    pprint(body["events"])
-
+    print(type(body))
 
     
     app.logger.info("Request body: " + body)
