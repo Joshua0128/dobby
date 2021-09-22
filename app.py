@@ -26,6 +26,7 @@ def callback():
 
     # get request body as text
     body = request.get_data(as_text=True)
+    print(body)
     app.logger.info("Request body: " + body)
 
     # handle webhook body
@@ -46,4 +47,5 @@ def handle_message(event):
 
 
 if __name__ == "__main__":
+    .listen(process.env.PORT || 5000)
     app.run()
