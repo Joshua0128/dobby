@@ -22,6 +22,8 @@ app = Flask(__name__)
 line_bot_api = LineBotApi(LINE_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
+from pprint import pprint
+
 
 @app.route("/callback", methods=['POST'])
 def callback():
