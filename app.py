@@ -38,11 +38,11 @@ def callback():
 
 
     app.logger.info("Request body: " + body)
-    # 輸入其它句子試看看
-    inputLIST = [text]
-    filterLIST = []
-    resultDICT = runLoki(inputLIST, filterLIST)
-    print("Result => {}".format(resultDICT))
+    # # 輸入其它句子試看看
+    # inputLIST = [text]
+    # filterLIST = []
+    # resultDICT = runLoki(inputLIST, filterLIST)
+    # print("Result => {}".format(resultDICT))
 
     # handle webhook body
     try:
@@ -56,6 +56,14 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    # 輸入其它句子試看看
+    text=event.message.text
+    print(text)
+    inputLIST = [text]
+    filterLIST = []
+    resultDICT = runLoki(inputLIST, filterLIST)
+    print("Result => {}".format(resultDICT))
+
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=event.message.text))
