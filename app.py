@@ -32,7 +32,7 @@ def callback():
 
     # get request body as text
     body = request.get_data(as_text=True)
-    msg = request.get_json(e)
+    msg = request.get_json()
     pprint(msg)
     
     app.logger.info("Request body: " + body)
