@@ -36,6 +36,7 @@ def callback():
     pprint(msg)
     text = msg['events'][0]['message']['text']
     print(text)
+    print(body.event.message.text)
 
     app.logger.info("Request body: " + body)
     # 輸入其它句子試看看
