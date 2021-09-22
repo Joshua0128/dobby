@@ -33,14 +33,13 @@ def callback():
     # get request body as text
     body = request.get_data(as_text=True)
     msg = request.get_json()
-    pprint(msg)
+    # pprint(msg)
     text = msg['events'][0]['message']['text']
-    print(text)
-    print(body.event.message.text)
+
 
     app.logger.info("Request body: " + body)
     # 輸入其它句子試看看
-    inputLIST = ["我想找成大外文系"]
+    inputLIST = [text]
     filterLIST = []
     resultDICT = runLoki(inputLIST, filterLIST)
     print("Result => {}".format(resultDICT))
