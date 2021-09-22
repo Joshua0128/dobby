@@ -33,7 +33,7 @@ def callback():
     # get request body as text
     body = request.get_data(as_text=True)
     pprint(body)
-    
+    event = body['events']["message"]    
     app.logger.info("Request body: " + body)
     # 輸入其它句子試看看
     inputLIST = ["我想找成大外文系"]
