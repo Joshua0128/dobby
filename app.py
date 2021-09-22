@@ -1,59 +1,49 @@
-#!/usr/bin/env python3
-# -*- coding:utf-8 -*-
+LINE_ACCESS_TOKEN   = "tYSPdyTRv4Y2SOM8pNrlx5B8wckzD/XnICBhr9YCOtqgc38cbSY79IZZG6tXLA9sweiQPr3j8WX9zYLvFBwxUw2um2G/BDVViOAGSETqYAIPLFiTVoGE9qHj37YRSHOLbRgvM+vnC+wRfiatoPhmwAdB04t89/1O/w1cDnyilFU="
+LINE_CHANNEL_SECRET = "862e704472f1a37fe1e7f006b9563fac"
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, abort
 
-from line_sdk import Linebot
-
-from IOHbot import runLoki
-
-LINE_ACCESS_TOKEN   = "w477YzEf5ubS1SGrLu88dQvzRdR4HUgbjGvbFPxZ3xVVW0s/1ItqB5z2NaOXk2H8kaQybBx+ICHH8jIkWdCYBTBudh4/+1KzAuQRd6c9DOf/jO0/loUC2rgmAolT5UMx+y07nVc+veZLyWY/aZHpggdB04t89/1O/w1cDnyilFU="
-LINE_CHANNEL_SECRET = "a126d182d8794e0cde2b203d4496a0ef"
+from linebot import (
+    LineBotApi, WebhookHandler
+)
+from linebot.exceptions import (
+    InvalidSignatureError
+)
+from linebot.models import (
+    MessageEvent, TextMessage, TextSendMessage,
+)
 
 app = Flask(__name__)
 
-@app.route("/callback", methods=["GET", "POST"])
-def webhook():
-    #GET
-    if request.method == "GET":
-        return jsonify({"status": True, "msg": "Line Webhook Success."})
-    
-    #POST
-    elif request.method == "POST":
-        signature = request.headers['X-Line-Signature']
-        body = request.get_data(as_text=True)
-        
-        # Line
-        linebot = Linebot(LINE_ACCESS_TOKEN, LINE_CHANNEL_SECRET)        
-        
-        #dataLIST =[{status, type, message, userID, replyToken, timestamp}]     
-        dataLIST = linebot.parse(body, signature)
-        for dataDICT in dataLIST:
-            if dataDICT["status"]:
-                if dataDICT["type"] == "message":
-                    if dataDICT["message"] == 'Hi':
-                        linebot.respText(dataDICT["replyToken"], "請你告訴我你想找的系")
-                        return
-                    if dataDICT["message"] == '謝謝':
-                        linebot.respText(dataDICT["replyToken"], "期待下次再幫你忙喔！")
-                    else:
-             
+line_bot_api = LineBotApi('YOUR_CHANNEL_ACCESS_TOKEN')
+handler = WebhookHandler('YOUR_CHANNEL_SECRET')
 
 
-    
+@app.route("/callback", methods=['POST'])
+def callback():
+    # get X-Line-Signature header value
+    signature = request.headers['X-Line-Signature']
+
+    # get request body as text
+    body = request.get_data(as_text=True)
+    app.logger.info("Request body: " + body)
+
+    # handle webhook body
+    try:
+        handler.handle(body, signature)
+    except InvalidSignatureError:
+        print("Invalid signature. Please check your channel access token/channel secret.")
+        abort(400)
+
+    return 'OK'
 
 
+@handler.add(MessageEvent, message=TextMessage)
+def handle_message(event):
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=event.message.text))
 
 
-import os
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 8888))
-    bot_info = line_bot_api.get_bot_info()
-    print(bot_info.display_name)
-    print(bot_info.user_id)
-    print(bot_info.basic_id)
-    print(bot_info.premium_id)
-    print(bot_info.picture_url)
-    print(bot_info.chat_mode)
-    print(bot_info.mark_as_read_mode)
-    app.run(host='0.0.0.0', port=port)
+    app.run()
