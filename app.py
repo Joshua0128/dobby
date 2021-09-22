@@ -32,7 +32,7 @@ def callback():
 
     # get request body as text
     body = request.get_data(as_text=True)
-    print(body)
+    pprint(body)
     
     app.logger.info("Request body: " + body)
     # 輸入其它句子試看看
