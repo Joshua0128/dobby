@@ -33,7 +33,7 @@ class HippoChamber:
     
     def vectorize(self, dir_path = ""):
         try:
-            with open("/home/labpc1/Documents/Project/dobby/dataset/ioh1500_arti.json") as f:
+            with open("C:/Users/User/Desktop/dobby/dataset/ioh1500_arti.json") as f:
                 content = json.load(f)
         except:
             print("error")
@@ -60,7 +60,9 @@ class HippoChamber:
         documents = self.documents
 
         X = self.vectorizer.fit_transform(documents).T.toarray()
-        df = pd.DataFrame(X, index=self.vectorizer.get_feature_names())   
+        #print(X)
+        df = pd.DataFrame(X, index=self.vectorizer.get_feature_names())
+        #display(df)
 
         self.doc_vec = df
 
@@ -73,6 +75,8 @@ class HippoChamber:
         lens = df.shape[1]
         for i in range(lens):
             sim[i] = np.dot(df.loc[:, i].values, q_vec) / np.linalg.norm(df.loc[:, i]) * np.linalg.norm(q_vec)
+            #print(q_vec)
+            #raise
 
         # Sort the values 
         sim_sorted = sorted(sim.items(), key=lambda x: x[1], reverse=True)

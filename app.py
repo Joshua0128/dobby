@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask, request, abort
-from IOHBot import runLoki
+from IOHbot import runLoki
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -36,9 +36,11 @@ def callback():
     return 'OK'
 
 @handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-    message = TextSendMessage(text=event.message.text)
-    line_bot_api.reply_message(event.reply_token,message)
+#def handle_message(event):
+    #message = TextSendMessage(text=event.message.text)
+    #line_bot_api.reply_message(event.reply_token,message)
+
+
 
 import os
 if __name__ == "__main__":
