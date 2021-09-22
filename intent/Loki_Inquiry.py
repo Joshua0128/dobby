@@ -62,7 +62,7 @@ def getResult(inputSTR, utterance, args, resultDICT):
              
         
     if utterance == "[外文系]":
-        resultDICT["department"].append(args[1]) 
+        resultDICT["department"].append(args[0]) 
 
 
     if utterance == "[成大][外文系][可以]做什麼":

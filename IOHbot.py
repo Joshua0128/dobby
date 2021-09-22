@@ -230,3 +230,6 @@ if __name__ == "__main__":
     filterLIST = []
     resultDICT = runLoki(inputLIST, filterLIST)
     print("Result => {}".format(resultDICT))
+
+
+    '{"destination":"Uc2436f4eee716f819544ec6d26d76f44","events":[{"type":"message","message":{"type":"text","id":"14791050218909","text":"人類"},"timestamp":1632322310046,"source":{"type":"user","userId":"Ufdbe56ce99a0dadb2365ba03605b70b1"},"replyToken":"c05cb953dff643f39f0f5937d0e51d28","mode":"active"}]}'
