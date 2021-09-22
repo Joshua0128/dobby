@@ -31,9 +31,9 @@ def callback():
     signature = request.headers['X-Line-Signature']
 
     # get request body as text
-    body = request.get_data(as_text=False)
-    print(type(body))
-
+    body = request.get_data(as_text=True)
+    msg = request.get_json(e)
+    pprint(msg)
     
     app.logger.info("Request body: " + body)
     # 輸入其它句子試看看
