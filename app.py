@@ -53,7 +53,7 @@ def callback():
 
 
     app.logger.info("Request body: " + body)
-    # inputLIST = [text]
+    # inputLIST = [text] 
     # filterLIST = []
     # resultDICT = runLoki(inputLIST, filterLIST)
     # print("Result => {}".format(resultDICT))
@@ -91,6 +91,7 @@ def handle_message(event):
     else:
         response = "IOH中沒有你查找的學校喔"
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text = response))
+        return
     
     #no department match 
     if 'department' in resultDICT:
@@ -98,8 +99,9 @@ def handle_message(event):
     else:
         response = "IOH中沒有你查找的系喔"
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text = response))
+        return
     
-    # yes uni and dept match
+    # both uni and dept match
     inquiryDICT = {"university": "", "department": ""} 
     if 'university' in resultDICT:
         inquiryDICT['university'] = resultDICT['university'] 
@@ -126,20 +128,26 @@ def handle_message(event):
                         print()
                     end = True
                 if num == 0:
-                    print("查詢失敗")
+                    print("很抱歉查詢失敗")
                     end = True                
                
     #user didn't mention uni
+    if resultDICT['university'] == "":
+        response = "請告訴 hippo chamber，你要查找的大學喔"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text = response))
+        return
     
-        
-                    
-        
-
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=content))
+    #user didn't mention dept
+    if resultDICT['department'] == "":
+        response = "請告訴 hippo chamber，你要查找的學系喔"
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(text = response))
+        return
     
 
+    #line_bot_api.reply_message(
+        #event.reply_token,
+        #TextSendMessage(text=content))
+    
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
