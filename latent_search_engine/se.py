@@ -33,7 +33,7 @@ class HippoChamber:
     
     def vectorize(self, dir_path = ""):
         try:
-            with open("C:/Users/User/Desktop/dobby/dataset/ioh1500_arti.json") as f:
+            with open("../dataset/ioh1500_arti.json") as f:
                 content = json.load(f)
         except:
             print("error")
