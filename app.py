@@ -88,10 +88,11 @@ def handle_message(event):
     if set(uniName).intersection(set(text)):
         if set(deptName).intersection(set(text)):
             university = resultDICT['university'] #str
-            department = resultDICT['department'] #str        
+            department = resultDICT['department'] #str      
+            print(university, department)  
             query_machine = se.HippoChamber()
-            df_vec = query_machine.vectorize(query_machine)
-            sim_sorted = query_machine.get_similar_articles(query = university)            
+            df_vec = query_machine.vectorize()
+            sim_sorted = query_machine.get_similar_articles(query = department)            
             for k, v in sim_sorted:
                 if v > 0.0:
                     content = query_machine.soource_doc[k] 
