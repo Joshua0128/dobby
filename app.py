@@ -42,7 +42,6 @@ def callback():
 
 
     app.logger.info("Request body: " + body)
-    # # 頛詨��嗅��亙�閰衣���
     # inputLIST = [text]
     # filterLIST = []
     # resultDICT = runLoki(inputLIST, filterLIST)
