@@ -90,8 +90,8 @@ def handle_message(event):
     flat_loki_keys = [item for sublist in loki_keys for item in sublist]
 
     user_id = event.source.user_id
-    print("="*20)
-    print(session)
+    # print("="*20)
+    # print(session)
     session[user_id].extend(flat_loki_keys)
     # print(session[user_id])
     
