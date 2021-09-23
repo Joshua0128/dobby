@@ -83,7 +83,7 @@ def handle_message(event):
             department = resultDICT['department'] #str        
             query_machine = se.HippoChamber()
             df_vec = query_machine.vectorize(query_machine)
-            sim_sorted = query_machine.get_similar_articles(query = "university")            
+            sim_sorted = query_machine.get_similar_articles(query = university)            
             for k, v in sim_sorted:
                 if v > 0.0:
                     content = query_machine.soource_doc[k] 
