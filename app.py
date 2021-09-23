@@ -80,13 +80,9 @@ def handle_message(event):
     # read in json files
     uniName = loadJson("school_name_dict.json") #DICT
     deptName = loadJson("dept_name_dict.json")
- 
-    #setup
-    university = resultDICT['university'] #str
-    department = resultDICT['department'] #str 
-    
+
     # no university match
-    if 'university' in resultDICT:
+    if 'university' in uniName.items():
         university = resultDICT['university']
     else:
         response = "IOH中沒有你查找的學校喔"
@@ -94,7 +90,7 @@ def handle_message(event):
         return
     
     #no department match 
-    if 'department' in resultDICT:
+    if 'department' in deptName.items():
         department = resultDICT['department']
     else:
         response = "IOH中沒有你查找的系喔"
@@ -103,9 +99,9 @@ def handle_message(event):
     
     # both uni and dept match
     inquiryDICT = {"university": "", "department": ""} 
-    if 'university' in resultDICT:
+    if 'university' in uniName.items():
         inquiryDICT['university'] = resultDICT['university'] 
-        if 'department' in resultDICT: 
+        if 'department' in deptName.items(): 
             inquiryDICT['department'] = resultDICT['department']
             #search
             query_machine = se.HippoChamber()
