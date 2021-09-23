@@ -22,6 +22,8 @@ from IOHbot import runLoki
 from latent_search_engine import se
 
 import json
+import os
+
 
 app = Flask(__name__)
 
@@ -31,7 +33,9 @@ handler = WebhookHandler(LINE_CHANNEL_SECRET)
 from pprint import pprint
 
 def loadJson(filename):
-    with open(filename,"r") as f:
+    basedir = os.path.abspath(os.path.dirname(__file__))
+    data_file = os.path.join(basedir, filename)
+    with open(data_file,"r") as f:
         result = json.load(f)
     return result
 
@@ -95,8 +99,6 @@ def handle_message(event):
         TextSendMessage(text=content))
     
 
-
-import os
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
