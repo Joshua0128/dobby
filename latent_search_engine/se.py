@@ -46,12 +46,14 @@ class HippoChamber:
 
         for doc in content:
             try:
-                source =  doc['arti']['result_segmentation']
+                source = doc['arti']['result_segmentation']
                 sents = source
                 sents = sents.replace("/", " ").replace("（", "").replace("／", "").replace("）", "").replace("」", "").replace("「", "")
                 sents = re.sub(r'[0-9]', '', sents)
                 self.documents.append(sents)
-                self.source_doc.append(source)
+                ref = "https://ioh.tw/" + doc['ref']
+                res = (doc['title'], ref)
+                self.source_doc.append(res)
             except Exception as e:
                 # documents.append("的")
 #                 print(e)
