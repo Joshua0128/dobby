@@ -34,6 +34,7 @@ from pprint import pprint
 
 def loadJson(filename):
     basedir = os.path.abspath(os.path.dirname(__file__))
+    print(basedir)
     data_file = os.path.join(basedir, filename)
     with open(data_file,"r") as f:
         result = json.load(f)
