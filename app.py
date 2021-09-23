@@ -19,8 +19,7 @@ from linebot.models import (
 
 from IOHbot import runLoki
 
-import se
-
+from latent_search_engine import se
 
 app = Flask(__name__)
 
@@ -61,17 +60,25 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    # 頛詨��嗅��亙�閰衣���
+    
+    # read in message
     text=event.message.text
     print(text)
     inputLIST = [text]
     filterLIST = []
     resultDICT = runLoki(inputLIST, filterLIST)
     txt = "Result => {}".format(resultDICT)
+    print(txt)
+    
+    # search 
+    #query_machine = se.HippoChamber()
+    #df_vec = query_machine.vectorize(query_machine)
+    #sim_sorted = query_machine.get_similar_articles(query = "醫生")
 
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=txt))
+    
 
 
 import os
