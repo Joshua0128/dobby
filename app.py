@@ -48,7 +48,7 @@ def callback():
     # text = msg['events'][0]['message']['text']
 
     app.logger.info("Request body: " + body)
-    # inputLIST = [text]
+    # inputLIST = [text] 
     # filterLIST = []
     # resultDICT = runLoki(inputLIST, filterLIST)
     # print("Result => {}".format(resultDICT))
@@ -134,6 +134,11 @@ def handle_message(event):
         event.reply_token,
         TextSendMessage(text=content))
 
+
+    #line_bot_api.reply_message(
+        #event.reply_token,
+        #TextSendMessage(text=content))
+    
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
