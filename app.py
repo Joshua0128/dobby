@@ -81,17 +81,57 @@ def handle_message(event):
     uniName = loadJson("school_name_dict.json") #DICT
     deptName = loadJson("dept_name_dict.json")
  
-    #inquiry uni and dept
-    if set(uniName).intersection(set(text)):
-        if set(deptName).intersection(set(text)):
-            university = resultDICT['university'] #str
-            department = resultDICT['department'] #str        
+    #setup
+    university = resultDICT['university'] #str
+    department = resultDICT['department'] #str 
+    
+    # no university match
+    if 'university' in resultDICT:
+        university = resultDICT['university']
+    else:
+        response = "IOH中沒有你查找的學校喔"
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text = response))
+    
+    #no department match 
+    if 'department' in resultDICT:
+        department = resultDICT['department']
+    else:
+        response = "IOH中沒有你查找的系喔"
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text = response))
+    
+    # yes uni and dept match
+    inquiryDICT = {"university": "", "department": ""} 
+    if 'university' in resultDICT:
+        inquiryDICT['university'] = resultDICT['university'] 
+        if 'department' in resultDICT: 
+            inquiryDICT['department'] = resultDICT['department']
+            #search
             query_machine = se.HippoChamber()
             df_vec = query_machine.vectorize(query_machine)
-            sim_sorted = query_machine.get_similar_articles(query = university)            
-            for k, v in sim_sorted:
-                if v > 0.0:
-                    content = query_machine.soource_doc[k] 
+            queryLIST = list(inquiryDICT.values())
+            for i in len(queryLIST):
+                sim_sorted = query_machine.get_similar_articles(query = queryLIST[i])
+                key_list = [k for k, v in sim_sorted if v > 0.0]
+                if num != -1:
+                    keys = set(key_list) & keys
+                else:
+                    keys = set(key_list)
+                num = len(keys)
+                if num <= 5:
+                    result = list(keys)
+                    for r in result:
+                        content = query_machine.doc[r].replace("/", "")
+                        print(content)
+                        print()
+                        print()
+                    end = True
+                if num == 0:
+                    print("查詢失敗")
+                    end = True                
+               
+    #user didn't mention uni
+    
+        
                     
         
 
