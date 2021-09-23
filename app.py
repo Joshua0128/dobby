@@ -81,7 +81,9 @@ def handle_message(event):
     # read in json files
     uniName = loadJson("school_name_dict.json") #DICT
     deptName = loadJson("dept_name_dict.json")
- 
+    
+    content = "N/A"
+
     #inquiry uni and dept
     if set(uniName).intersection(set(text)):
         if set(deptName).intersection(set(text)):
