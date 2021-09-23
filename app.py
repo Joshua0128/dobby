@@ -70,13 +70,17 @@ def handle_message(event):
     print(txt)
     
     # search 
-    #query_machine = se.HippoChamber()
-    #df_vec = query_machine.vectorize(query_machine)
-    #sim_sorted = query_machine.get_similar_articles(query = "醫生")
+    query_machine = se.HippoChamber()
+    df_vec = query_machine.vectorize(query_machine)
+    sim_sorted = query_machine.get_similar_articles(query = "醫生")
+
+    for k, v in sim_sorted:
+        if v > 0.0:
+            content = query_machine.soource_doc[k]
 
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=txt))
+        TextSendMessage(text=content))
     
 
 
