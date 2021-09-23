@@ -77,8 +77,6 @@ class HippoChamber:
         lens = df.shape[1]
         for i in range(lens):
             sim[i] = np.dot(df.loc[:, i].values, q_vec) / np.linalg.norm(df.loc[:, i]) * np.linalg.norm(q_vec)
-            print(q_vec)
-            raise
 
         # Sort the values 
         sim_sorted = sorted(sim.items(), key=lambda x: x[1], reverse=True)
