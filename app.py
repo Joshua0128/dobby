@@ -21,6 +21,8 @@ from IOHbot import runLoki
 
 from latent_search_engine import se
 
+import json
+
 app = Flask(__name__)
 
 line_bot_api = LineBotApi(LINE_ACCESS_TOKEN)
@@ -28,6 +30,10 @@ handler = WebhookHandler(LINE_CHANNEL_SECRET)
 
 from pprint import pprint
 
+def loadJson(filename):
+    with open(filename,"r") as f:
+        result = json.load(f)
+    return result
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -61,22 +67,28 @@ def callback():
 def handle_message(event):
     
     # read in message
-    text=event.message.text
-    print(text)
+    text = event.message.text
     inputLIST = [text]
     filterLIST = []
     resultDICT = runLoki(inputLIST, filterLIST)
-    txt = "Result => {}".format(resultDICT)
-    print(txt)
     
-    # search 
-    query_machine = se.HippoChamber()
-    df_vec = query_machine.vectorize(query_machine)
-    sim_sorted = query_machine.get_similar_articles(query = "醫生")
-
-    for k, v in sim_sorted:
-        if v > 0.0:
-            content = query_machine.soource_doc[k]
+    # read in json files
+    uniName = loadJson("school_name_dict.json") #DICT
+    deptName = loadJson("dept_name_dict.json")
+ 
+    #inquiry uni and dept
+    if set(uniName).intersection(set(text)):
+        if set(deptName).intersection(set(text)):
+            university = resultDICT['university'] #str
+            department = resultDICT['department'] #str        
+            query_machine = se.HippoChamber()
+            df_vec = query_machine.vectorize(query_machine)
+            sim_sorted = query_machine.get_similar_articles(query = "university")            
+            for k, v in sim_sorted:
+                if v > 0.0:
+                    content = query_machine.soource_doc[k] 
+                    
+        
 
     line_bot_api.reply_message(
         event.reply_token,
