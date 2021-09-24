@@ -112,17 +112,21 @@ def handle_message(event):
         else:
             print(type(keys))
             keys = set(key_list) & keys
+        num = len(keys)
 
-    num = len(keys)
     print(num)
 
-    if num <= 5:
+    if 0 < num <= 10:
         result = list(keys)
+        result_content = []
         for r in result:
-            content = query_machine.source_doc[r]
-            print(content)
+            res = query_machine.source_doc[r]
+            result_content.append(res[0])
+            result_content.append(res[1])
+        content = "\n".join(result_content)
+        print(content)
         session[user_id] = []
-    if num == 0:
+    elif num == 0:
         content = "不好意思，目前IOH還沒有相關科系的分享"
         session[user_id] = []
     else:
