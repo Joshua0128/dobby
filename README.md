@@ -1,8 +1,8 @@
 ## Hippo Chamber 
 
-**Hippo Chamber** 可以減少在 [IOH](https://ioh.tw/) 網頁中搜尋文章的難度並且縮短找尋文章的時間。
+## 使用情境
 
-只要在Line上加入 Hippo Chamber 好友，就可以用關鍵字找出最相關的文章。
+**Hippo Chamber** 可以減少在大量文章中搜尋過濾文章的難度並且透過語意對話縮短找尋文章的時間。本專案用IOH網站上面分享的大量內容作為範例，只要在Line上加入 Hippo Chamber 好友，就可以用關鍵字找出最相關的文章。
 
 #### IOH 背景
 
@@ -12,17 +12,13 @@
 
 ***
 
-#### 使用說明
-
-加入Hippo Chamber Line好友後，輸入你想查詢之關鍵字，他就會告訴你目前找尋到幾篇相關文章。
-
-請你在提供更詳盡的關鍵字以利順利縮小搜尋範圍。
-
-***
-
 #### 環境設定
 
-- 專案需要安裝的套件均寫在 [requirements.txt](https://github.com/Joshua0128/dobby/blob/main/requirements.txt)
+- 安裝本專案所需套件
+
+  - ```bash
+    pip install -r requirement.txt
+    ```
 
 - 註冊Loki帳號
 
@@ -34,9 +30,5 @@
 
      
 
-     
-
-
-
-
-
+## 使用說明     
+加入Hippo Chamber Line好友後，輸入你想查詢之關鍵字，他就會告訴你目前找尋到幾篇相關文章。
