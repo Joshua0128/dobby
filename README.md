@@ -27,7 +27,7 @@
   2. 取得取得username, lokikey填入 ```nlu/account.json```
 
 
-- Line Bot 設定
+### Line Bot 設定
 
 1. 用line帳號登入 [LINE DEVELOPER](https://developers.line.biz/en/)
 2. 建立新的 ***Provider*** ，名字隨意
@@ -39,19 +39,35 @@
 8. LINE_CHANNEL_SECRET : 複製貼上Basic Setting的 ***Channel secret***
 9. 將***LINE token*** 和　***Channel secret***　填入```linebot.json```中
 
-- **Heroku** 設定
+### Heroku 設定
 
 1.  到 [Heroku](https://dashboard.heroku.com/login) 建立伺服器，右上角 ***Create new app*** 
 2.  給個App name， Region只有美國和歐洲，選什麼都沒差因為離你都很遠XD
 
 ***
 
-- **串接 Line 和 Heroku**
+### 串接 Line 和 Heroku
 
 1. 到 Heroku 你剛布屬好的伺服器，點右上角 **Open App**，他會打開一個網站，我們要取它的網址
 2. 複製網址到 Line Developer 的 Messaging API 的 ***Webhook settings***貼上剛的網址
 3. 貼上後記得在網址最後加上 **/callback** 例子: https://testbotxxxxxxx.herokuapp.com/callback
 4. 最後點 ***Verify*** 且下面***Use Webhook*** 打開，就全部設定完成了! 
+
+### 使用自定義的資料集
+資料集格式如下
+```
+{
+  [{
+    title:"文件的標題",
+    ref:"文件的連結",
+    content:"放文檔內容",
+    result_segmentation:" 放/文檔/斷詞/後/的/結果"
+  },{
+    ...
+  }]
+}
+```
+詳細格式可以參考 ```dataset/ioh_sample.json```
 
 ## 開始使用
 您可以透過輸入LINE Bot ID或是掃QR Code加入好友。
