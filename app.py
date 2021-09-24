@@ -5,7 +5,7 @@ from pprint import pprint
 import os
 import json
 from latent_search_engine import se
-from IOHbot import LokiResult, runLoki
+from nlu.IOHbot import LokiResult, runLoki
 from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
@@ -40,7 +40,7 @@ def callback():
     msg = request.get_json()
 
     app.logger.info("Request body: " + body)
-    
+
     # handle webhook body
     try:
         handler.handle(body, signature)

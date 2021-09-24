@@ -33,7 +33,7 @@ class HippoChamber:
     
     def vectorize(self, dir_path = ""):
         try:
-            with open("./ioh1500_arti.json") as f:
+            with open("./dataset/ioh_sample.json") as f:
                 content = json.load(f)
         except:
             print("error")
@@ -46,18 +46,18 @@ class HippoChamber:
 
         for doc in content:
             try:
-                source = doc['arti']['result_segmentation']
+                source = doc['result_segmentation']
                 sents = source
                 sents = sents.replace("/", " ").replace("（", "").replace("／", "").replace("）", "").replace("」", "").replace("「", "")
                 sents = re.sub(r'[0-9]', '', sents)
                 self.documents.append(sents)
-                ref = "https://ioh.tw/" + doc['ref']
+                ref = doc['ref']
                 res = (doc['title'], ref)
                 self.source_doc.append(res)
             except Exception as e:
                 # documents.append("的")
-#                 print(e)
-                pass
+                # print(e)
+                # pass
         
         documents = self.documents
 

@@ -58,7 +58,7 @@ except:
     from .intent import Loki_Company
 
 
-with open("./account.json", encoding="utf-8") as f:
+with open("./nlu/account.json", encoding="utf-8") as f:
     accountDICT = json.loads(f.read())
 
 LOKI_URL = "https://api.droidtown.co/Loki/BulkAPI/"
