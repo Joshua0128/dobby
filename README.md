@@ -10,9 +10,7 @@
 
 其主旨在將個人經驗大眾化，所以使用者可以在網頁上瀏覽別人的求學與工作經驗。
 
-***
-
-#### 環境設定
+## 環境設定
 
 - 安裝本專案所需套件
 
@@ -27,7 +25,7 @@
      <img src="https://raw.githubusercontent.com/Joshua0128/dobby/main/img/DT_register.png" alt="註冊 圖示" style="zoom:80%;" />
 
      <img src="https://raw.githubusercontent.com/Joshua0128/dobby/main/img/DT_login.png" alt="登入 圖示" style="zoom:50%;" />
-
+  2. 
      
 
 ## 使用說明     
