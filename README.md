@@ -75,10 +75,12 @@
 LINE Bot ID: @726tbyzw </br>
 QR Code </br>
 <img src="https://raw.githubusercontent.com/Joshua0128/dobby/main/img/qrcode.png" width = 200 />
+
 ## 使用範例
 1. 輸入你有興趣的系所或是職業內容
 2. Line Bot會回傳dataset中相關聯的資料
 <img src="https://raw.githubusercontent.com/Joshua0128/dobby/main/img/demo.png" width = 200 />
+
 ## 聯絡資料
 若您有任何疑問，歡迎透過email聯繫我們
 - Wei : waiting.hchs@gmail.com
