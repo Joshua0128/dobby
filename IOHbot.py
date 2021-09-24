@@ -58,8 +58,8 @@ except:
 
 
 LOKI_URL = "https://api.droidtown.co/Loki/BulkAPI/"
-USERNAME = "emilyfun199701@gmail.com"
-LOKI_KEY = "hb3Lzsa6bVRZFEAFB+O$Iv9sPQGa*pL"
+USERNAME = "waiting.hchs@gmail.com"
+LOKI_KEY = "XB*g%RrvHV4VMbuNhC@sCp+2^wHN$HF"
 # 意圖過濾器說明
 # INTENT_FILTER = []        => 比對全部的意圖 (預設)
 # INTENT_FILTER = [intentN] => 僅比對 INTENT_FILTER 內的意圖

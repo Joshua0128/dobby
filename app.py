@@ -116,6 +116,8 @@ def handle_message(event):
 
     print(num)
 
+    num = max(num, 0)
+
     if 0 < num <= 10:
         result = list(keys)
         result_content = []
