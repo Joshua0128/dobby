@@ -21,9 +21,9 @@
 
   1. ​	到[卓騰語言科技 ](https://api.droidtown.co/)官網註冊會員並登入頁面。順利登入後進入Loki頁面。
 
-     <img src="https://raw.githubusercontent.com/Joshua0128/dobby/main/img/DT_register.png" alt="註冊 圖示" style="zoom:80%;" />
+     <img src="https://raw.githubusercontent.com/Joshua0128/dobby/main/img/DT_register.png" alt="註冊 圖示" width=400 />
 
-     <img src="https://raw.githubusercontent.com/Joshua0128/dobby/main/img/DT_login.png" alt="登入 圖示" style="zoom:50%;" />
+     <img src="https://raw.githubusercontent.com/Joshua0128/dobby/main/img/DT_login.png" alt="登入 圖示"  width=400 />
   2. 取得取得username, lokikey填入 ```nlu/account.json```
 
 
@@ -56,10 +56,9 @@
 ## 開始使用
 您可以透過輸入LINE Bot ID或是掃QR Code加入好友。
 
-LINE Bot ID: @726tbyzw
-QR Code
-https://raw.githubusercontent.com/Joshua0128/dobby/main/img/qrcode.png
-
+LINE Bot ID: @726tbyzw </br>
+QR Code </br>
+<img src="https://raw.githubusercontent.com/Joshua0128/dobby/main/img/qrcode.png" width = 200 />
 ## 使用範例
 1. 輸入你有興趣的系所或是職業內容
 2. Line Bot會回傳dataset中相關連的資料
