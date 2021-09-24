@@ -55,9 +55,7 @@ class HippoChamber:
                 res = (doc['title'], ref)
                 self.source_doc.append(res)
             except Exception as e:
-                # documents.append("的")
-                # print(e)
-                # pass
+                pass
         
         documents = self.documents
 
