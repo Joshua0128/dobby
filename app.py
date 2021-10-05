@@ -62,7 +62,7 @@ def handle_message(event):
     filterLIST = []
     resultDICT = runLoki(inputLIST, filterLIST)
 
-    content = "不好意思，我看不懂，要不要試著像個人類一樣說話呢？"
+    content = "不好意思，我看不懂，要不要試著像個人類一樣說話呢^^？"
 
     loki_keys = resultDICT.values()
     flat_loki_keys = [item for sublist in loki_keys for item in sublist]
