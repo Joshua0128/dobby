@@ -88,7 +88,7 @@ def handle_message(event):
             keys = set(key_list) & keys
         num = len(keys)
 
-    print(num)
+    # print(num)
 
     num = max(num, 0)
 
